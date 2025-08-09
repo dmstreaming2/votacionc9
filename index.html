@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Votación en Tiempo Real</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-wrap">
+    <!-- LOGIN -->
+    <section id="login-container" class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Iniciar sesión</h2>
+      <label class="sr-only" for="username">Usuario</label>
+      <input id="username" type="text" placeholder="Usuario" autocomplete="username" />
+      <label class="sr-only" for="password">Contraseña</label>
+      <input id="password" type="password" placeholder="Contraseña" autocomplete="current-password" />
+      <button class="btn btn-login" onclick="login()">Entrar</button>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <!-- VOTACIÓN -->
+    <section id="vote-container" class="card" style="display:none" aria-labelledby="vote-title">
+      <h2 id="vote-title">Vota por tu candidato</h2>
+      <div id="options-container" class="options-list" aria-live="polite"></div>
+      <div class="small-row">
+        <button class="btn btn-logout" onclick="logout()">Cerrar sesión</button>
+      </div>
+    </section>
+
+    <!-- PANEL ADMIN -->
+    <section id="admin-container" class="card" style="display:none" aria-labelledby="admin-title">
+      <h2 id="admin-title">📊 Panel Admin</h2>
+      <div id="admin-options" class="admin-list"></div>
+      <p class="total">Total de votos: <strong id="total-votos">0</strong></p>
+      <div class="small-row">
+        <button class="btn btn-logout" onclick="logout()">Cerrar sesión</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Firebase SDKs (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+
+  <!-- Tu lógica (archivo externo) -->
+  <script src="script.js"></script>
+</body>
+</html>
